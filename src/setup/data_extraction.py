@@ -9,7 +9,8 @@ import numpy as np
 def read(path: str) -> pd.DataFrame:
     """
     Reads the data from given path and creates a pandas dataframe.
-    It also replaces '-' with numpy nan values for easier handling.
+    It also replaces '-' with numpy nan values for easier handling and
+    converts all columns to numeric if that is possible.
     """
     df = pd.read_csv(
         path, sep=',', encoding='utf-8').replace(to_replace='-', value=np.nan)
