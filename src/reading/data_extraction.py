@@ -5,6 +5,9 @@ Module that contains functions for data extraction and cleaning.
 import pandas as pd
 import numpy as np
 
+import sys
+sys.dont_write_bytecode = True
+
 
 def read(path: str) -> pd.DataFrame:
     """
