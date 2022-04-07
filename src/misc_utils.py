@@ -4,6 +4,7 @@ They are stored here so they don't clutter the main code.
 """
 
 from IPython.display import display_html
+from IPython.core.display import HTML
 from itertools import chain, cycle
 import pandas as pd
 
