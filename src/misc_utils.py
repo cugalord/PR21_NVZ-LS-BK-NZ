@@ -86,6 +86,7 @@ def plot_scatter(i1: Iterable, i2: Iterable, diags='positive', fsize=(10, 7), la
     :param fsize: Size of the plot.
     :param diags: Whether to plot positive, negative or both diagonals.
     :param labels: Labels of the x and y axes.
+    :param subplot: Subplot to plot on.
     """
     if diags is not None:
         if diags not in ['positive', 'negative', 'both']:
@@ -120,6 +121,7 @@ def plot_scatter_dynamic(i1: Iterable, i2: Iterable, fsize=(10, 7), labels=None)
     :param i2: Second iterable.
     :param fsize: Size of the plot.
     :param labels: Labels of the x and y axes.
+    :param subplot: Subplot to plot on.
     """
     check_iterable(i1, i2)
 
@@ -129,11 +131,14 @@ def plot_scatter_dynamic(i1: Iterable, i2: Iterable, fsize=(10, 7), labels=None)
     corr = ss.pearsonr(i1, i2)
 
     if corr[0] > 0.3:
-        plot_scatter(i1, i2, fsize=fsize, labels=labels, diags='positive')
+        plot_scatter(i1, i2, fsize=fsize, labels=labels,
+                     diags='positive')
     elif corr[0] < -0.3:
-        plot_scatter(i1, i2, fsize=fsize, labels=labels, diags='negative')
+        plot_scatter(i1, i2, fsize=fsize, labels=labels,
+                     diags='negative')
     elif corr[0] > -0.3 and corr[0] < 0.3:
-        plot_scatter(i1, i2, fsize=fsize, labels=labels, diags='both')
+        plot_scatter(i1, i2, fsize=fsize, labels=labels,
+                     diags='both')
 
 
 def prettyprint_dict(dict: dict, labels: Iterable) -> None:
