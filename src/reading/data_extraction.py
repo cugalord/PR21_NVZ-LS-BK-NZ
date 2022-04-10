@@ -14,6 +14,9 @@ def read(path: str) -> pd.DataFrame:
     Reads the data from given path and creates a pandas dataframe.
     It also replaces '-' with numpy nan values for easier handling and
     converts all columns to numeric if that is possible.
+
+    :param path: Path to the data file.
+    :return: Pandas dataframe.
     """
     df = pd.read_csv(
         path, sep=',', encoding='utf-8').replace(to_replace='-', value=np.nan)
@@ -33,6 +36,9 @@ def _combine_into_quarters(df: pd.DataFrame) -> pd.DataFrame:
     Combines monthly data in dataframe into quarterly data.
     This should be used only for dataset 'El. energija.csv', as
     it is the only dataset with monthly data.
+
+    :param df: Dataframe of which to combine monthly data.
+    :return: Dataframe with quarterly data.
     """
     # Create new dataframe with only the columns that are needed.
     tmp = df[df.columns[1:]].copy()
