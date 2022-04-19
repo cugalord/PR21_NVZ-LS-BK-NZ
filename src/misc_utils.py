@@ -115,7 +115,9 @@ def plot_scatter(i1: Iterable, i2: Iterable, diags='positive', fsize=(10, 7), la
 
 def plot_scatter_dynamic(i1: Iterable, i2: Iterable, fsize=(10, 7), labels=None) -> None:
     """
-    Plots a scatter plot of two iterables.
+    Plots a scatter plot of two iterables and draws a diagonal of their fit.
+    If no correlation is found, both diagonals are drawn to show that the
+    plot doesn't fit in any direction.
 
     :param i1: First iterable.
     :param i2: Second iterable.
